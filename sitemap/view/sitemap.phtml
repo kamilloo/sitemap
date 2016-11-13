@@ -1,0 +1,55 @@
+<?php /** @var \Snowdog\DevTest\Controller\WebsiteAction $this */ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Import SiteMap</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<?php \Snowdog\DevTest\Component\Menu::getInstance()->render() ?>
+
+<div class="container">
+
+    <?php if (isset($_SESSION['flash'])): ?>
+        <p class="bg-info"><?= $_SESSION['flash'] ?></p>
+        <?php unset($_SESSION['flash']) ?>
+    <?php endif ?>
+
+    <div>
+            <h1>Import SiteMap Form</h1>
+
+            <div class="padded">
+                <form class="form" method="post" action="/sitemap" enctype="multipart/form-data">
+                    <div class="form-group padding-20">
+                        <label for="exampleInputName2">Name </label>
+                        <input type="text" name="name" required class="form-control" id="exampleInputName2"
+                               placeholder="My Website Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">SiteMap File</label>
+                        <input type="file" class="form-control-file" required name="sitemap" id="exampleInputFile" aria-describedby="fileHelp">
+                        <small id="fileHelp" class="form-text text-muted">Validate files: *.xml.</small>
+                   </div>
+
+                    <button type="submit" class="btn btn-primary">Add SiteMap</button>
+                </form>
+            </div>
+    </div>
+
+</div><!-- /.container -->
+
+
+</body>
+</html>
