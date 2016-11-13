@@ -6,11 +6,13 @@ use Snowdog\DevTest\Model\PageManager;
 use Snowdog\DevTest\Model\UserManager;
 use Snowdog\DevTest\Model\WebsiteManager;
 
-class CreatePageAction
+class CreatePageAction extends BaseController
 {
 
     public function __construct(UserManager $userManager, WebsiteManager $websiteManager, PageManager $pageManager)
     {
+        $this->filter('auth');
+        
         $this->websiteManager = $websiteManager;
         $this->pageManager = $pageManager;
         $this->userManager = $userManager;

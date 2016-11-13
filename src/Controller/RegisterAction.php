@@ -4,7 +4,7 @@ namespace Snowdog\DevTest\Controller;
 
 use Snowdog\DevTest\Model\UserManager;
 
-class RegisterAction
+class RegisterAction extends BaseController
 {
 
     /**
@@ -14,6 +14,8 @@ class RegisterAction
 
     public function __construct(UserManager $userManager)
     {
+        $this->filter('guest');
+    
         $this->userManager = $userManager;
     }
 

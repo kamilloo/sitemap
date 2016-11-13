@@ -1,8 +1,16 @@
 <?php
 
-namespace SnowDog\SiteMap\Controller;
+namespace Snowdog\SiteMap\Controller;
 
-class SiteMapForm{
+use Snowdog\DevTest\Controller\BaseController;
+
+class SiteMapForm extends BaseController{
+
+	public function __construct()
+    {
+        $this->filter('auth');        
+    }
+
 	public function execute() {
         require __DIR__ . '/../view/sitemap.phtml';
     }

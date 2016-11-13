@@ -7,10 +7,9 @@ use Snowdog\DevTest\Model\WebsiteManager;
 use Snowdog\DevTest\Model\UserManager;
 use Snowdog\SiteMap\Core\XmlManager;
 use Snowdog\SiteMap\Core\Validator;
+use Snowdog\DevTest\Controller\BaseController;
 
-
-
-class ImportSiteMap{
+class ImportSiteMap extends BaseController{
 	
     /**
      * @var WebsiteManager
@@ -32,6 +31,8 @@ class ImportSiteMap{
 
     public function __construct(WebsiteManager $websiteManager, PageManager $pageManager, XmlManager $xmlManager, UserManager $userManager)
     {
+        $this->filter('auth');
+        
         $this->websiteManager = $websiteManager;
         $this->pageManager = $pageManager;
         $this->xmlManager = $xmlManager;
